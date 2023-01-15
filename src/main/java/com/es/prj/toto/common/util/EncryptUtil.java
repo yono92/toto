@@ -1,4 +1,4 @@
-package com.es.prj.toto.util;
+package com.es.prj.toto.common.util;
 
 import org.springframework.stereotype.Component;
 

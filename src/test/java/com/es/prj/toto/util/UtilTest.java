@@ -1,5 +1,6 @@
 package com.es.prj.toto.util;
 
+import com.es.prj.toto.common.util.EncryptUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

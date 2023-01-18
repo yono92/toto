@@ -1,6 +1,7 @@
 package com.es.prj.toto.common.jwt;
 
 import com.es.prj.toto.user.service.UserDetailService;
+import com.es.prj.toto.user.service.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -53,7 +54,7 @@ public class JwtProvider {
     }
 
     public String getUserId(String token) {
-        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getId();
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
     }
 
     public String resolveToken(HttpServletRequest request) {

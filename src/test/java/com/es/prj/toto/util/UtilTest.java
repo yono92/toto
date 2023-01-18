@@ -13,11 +13,8 @@ public class UtilTest {
     @Test
     public void encrypt() throws Exception {
 
-        String encryptPwd = encryptUtil.getEncryptValue("password", "123", 100);
-
-        String encryptPwd1 = encryptUtil.getEncryptValue("password", "123", 10);
+        String encryptPwd = encryptUtil.getEncryptValue("password", "123");
 
         System.out.println("encryptPwd >>>> " + encryptPwd);
-        System.out.println("encryptPwd1 >>>> " + encryptPwd1);
     }
 }

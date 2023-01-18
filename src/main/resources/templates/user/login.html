@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <div>
+      <input type="text" id="userId" placeholder="아이디를 입력하세요"/>
+      <input type="password" id="password" placeholder="비밀번호를 입력하세요"/>
+    </div>
+    <div>
+      <button type="button" id="loginBtn" onclick="clickFunc()">로그인</button>
+    </div>
+</body>
+<script>
+
+    function clickFunc() {
+        const userId = document.getElementById("userId").value;
+        const password = document.getElementById("password");
+        let data = {"userId": userId};
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost/auth/token');
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        xhr.send(JSON.stringify(data));
+
+        xhr.onreadystatechange = () => {
+            if(xhr.readyState === xhr.DONE && xhr.status >= 200 && xhr.status <400) {
+                const token = xhr.response;
+                alert(token);
+                xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost/api/login');
+                xhr.setRequestHeader('ConTent-Type', 'application/json');
+                xhr.setRequestHeader('Authorization', token);
+                xhr.send(JSON.stringify(data));
+                xhr.onreadystatechange = () => {
+                    if(xhr.readyState === xhr.DONE && xhr.status >= 200 && xhr.status <400) {
+                        alert("성공");
+                    }
+                }
+            }
+        }
+    }
+
+</script>
+</html>

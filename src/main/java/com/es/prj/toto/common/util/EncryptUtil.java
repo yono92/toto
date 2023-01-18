@@ -9,12 +9,12 @@ import java.security.MessageDigest;
 public class EncryptUtil {
 
 
-    public String getEncryptValue(String value, String salt, int stretchSize) throws Exception{
+    public String getEncryptValue(String value, String salt) throws Exception{
         MessageDigest md = MessageDigest.getInstance("SHA-256");
 
 
 
-        for(int i=0; i < stretchSize; i++) {
+        for(int i=0; i < 100; i++) {
             String temp = salt + value;
             md.update(temp.getBytes());
             value = byteToString(md.digest());

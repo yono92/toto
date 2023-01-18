@@ -1,6 +1,6 @@
 package com.es.prj.toto.user;
 
-import com.es.prj.toto.user.domain.UserRequest;
+import com.es.prj.toto.user.domain.request.UserRequest;
 import com.es.prj.toto.user.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
